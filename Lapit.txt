@@ -1,0 +1,54 @@
+1-header de toutes les pages:
+	- Une première bande horizontale bleu un peu sombre, dans laquelle, tout à gauche on as la définition du cigle du labo, au milieu, une barre de recherche, à droite un bouton se connecter. Tout cela bien stylé, avec des icones.
+	- Une deuxième bande horizontale pour la barre de navigation en couleur blanche douce, à gauche aligner en dessous de la définition du cigle du labo, le logo du labo, au millieu les menu de navigation à savoir : Acceuil, LaPIT(dans ce menu, on as les sous menus suivants: Direction, Mission & Vission, Unitées de recherche, Laboratoires partenaires, Téléchargement), Travaux des Chercheurs, Projets, Actualités(dans ce menu , on as les sous-menu suivants: actualitées, photothèque, vidéothèque), Contact. NB: les sous menus s'affiches au survols des menus. A droite, le logo de l'université.
+
+2-Footer de chaque page: couleur bleu un peu sombre même couleurs que dans le header. Une larges bandes avec de la gauche vers la droite:
+	- Le logo de l'universuté, Une partie nommé CONTACTS(disposé verticalement, le numéro de téléphone du l'universités, le mail, la localisation: affichage stylé avec des icones.).Une partie Nommé NAVIGATION (disposé verticalement, Projet de recherches(qui mène vers la page projet), Travaux des chercheurs(qui mène vers la pages travaux des chercheurs), vidéothèque, Photothèque. Une autre partie  nommé LIENS UTILES (disposé verticalement: UNSTIM(lien vers le site de UNSTIM), INSTI(lien vers le site de l'INSTI). NB: Un style propre et professionnel. Utilisé des icônes jolies.
+
+3- Accueil (la page qui s'affiche dès qu'on vient sur le site)
+	- Une section montrant un slider, d'image qui defile, avec en gros plan le nom du labo : LaPIT et un paragraphes de textes qui change selon l'image.
+	- Une section nommé Les dernières nouvelles du LaPIT, dans cette section on as trois rectangles, disposé horizontalements, de gauche de vers la droite qui présente les trois dernières actualitées, chaque actualitées as une photo, un intitulé, une petite description et un bouton voir plus qui mène vers la rubrique actualité, precisement vers la page de présentation de l'actualités, qui comporte l'intitulé de l'actualité, la photo et la description au complet. C'est à dire que porte chaque actualité le bouton voir plus mène vers une page qui présente cette actualités.
+	Une section nommé: Unités de Recherches , qui presentes dans quatres case les 04 Unitées de recherches du LaPIT. Une photo, l'intitulé de l'Unitées de recherches, Responsables,une petite description, Un bouton en savoir plus(qui mène vers la page de présentation de l'Unité de recherches proprement dites.
+	-Une section qui présente une vidéo du Labo LaPIT.
+	-Une section Mission & Vission: qui présente une image accompagnées d'un texte(une partie du texte qui parle des msissions & Vissions de LaPIT) et un bouton Lire la Suite qui mène vers la page Mission & Vission.
+	- Une section Laboratoires partenaires, qui montrent juste les logos des laboratoires partenaires qui défile et un  bouton en savoir-plus, qui mène vers la page du sous menu de LaPIT nommé laboratoires patrtenaires.
+
+4- Dans le menu LaPIT:
+	4.1- la page du sous-menu Direction: 
+		-Une section: ADMINISTRATION DU LaPIT qui présente une photo et la structure hiérachique Administratifs du laraboratoires.
+		- Une section qui présente des cases montrant chaque membres du Laboratoires LaPIT. Pour chaque membres Nom, Prénoms, Poste occupé, mail et numéro de téléphone. Affichage stylé avec icones.
+	4.2- La page du sous menu Mission & Vission
+		- Une unique section qui presente un texte qui décrit les Mission et la vision du labo LaPIT. Stylé avec icones, page professionnel et stylisé.
+	4.3- La page du sous menu Unités de Recherches
+		-Une section qui presente les quatres Unitées de recherches du LaPIT, Pour chaque 	Unités de Recherches, on montre: Une image, l'intitulé, le Responsable, une petite description et un bouton en savoir plus qui mène vers une page qui présente en détails l'Unité de recherche. La page qui présente plus de détails montre: En gros plan l'intutilé de l'unité de recherche, une section nommée: Présentation de l'unité {le nom de l'unité de recherches} qui montrent un texte qui présente en générale l'unité. Une autre section, Technologies et Innovations, qui présente les technologies et innovation de l'unité. Une autre section Perspectives: qui montrent les perspertives de l'unité. Une section membres de l'unité, qui presente nom et prénom de chaque membres et son grade, et une petite section qui présente le Responsables de l'unité de recherche: Nom , prénom  grade.  Tout cela est visible lorsqu'on clique sur le bouton en savoir plus pour chacune de quatres unitées de recherches. Le contenu est donc chargées dynamiquement.
+	4.4- la page du sous-menu Laboratoires partenaires. 
+		- une unique section qui montres tout les laboratoires partenaires dans des rectangles disposé verticalement. Pour chaque Labo partenaires on as un logo, Intitulé, UNIVERSITE, Responsable(Nom, Prénom, Grade academique), Informations(Mail, téléphone, Site Web) 
+	4.5- la page du sous menu Téléchargement:
+		-une unique section qui presente des documents du LaPIT , chaque documents à un nom et un bouton téléchargements.
+5- Dans le menu  Travaux des Chercheurs
+		-une unique section : Titre= LES ENSEIGNATS CHERCHEURS DU LaPIT. Cette section montre des cases aligné trois sur chaque ligne. Chaque case présente un enseignant chercheur (Photo, Nom, Prénoms, Grade academique, Spécialité et un boutons en savoirs plus). Quand on clique sur en savoirs plus d'un case présentant un enseignant chercheur, on est redirigé vers une page qui presente l'enseignant et ses travaux de recherches. Cette page présente:
+		1. Une section: titre= Presentaion de l'enseignant. Dans cette section on affiche la photo de l'enseignant à gauche puis à droite, Nom, Prénoms,Grade académique, spécialité, contacts(mail, téléphones)
+		2. Une autre section en bas qui montres une petite barre de navigation avec les menus horizontales suivant: Profil, Projets de recherches, Encadrements, Publications scientifiques.
+		2.1. Dans Profil:
+		  -Une section avec rubriques : Distinctions (qui presente les distinctions de l'enseignant chercheur, et année d'obtention), Spécialité(qui présente la spécialité de l'enseignant chercheurs),Appartenances aux associations professionnelles( qui enumère les groupes ou associations d'appartenances professionenelles)
+		2.2. Dans Projet de recherche:
+		  - Une section qui montre un tableau à quatres collones intitulé Recherches académiques. Colonne 1: Designation du projet, colonne 2: Implication de l'enseignant dans le projet, colonne 3: Niveau d'avancement(En cours,Achevé), Colonne 4: Objectifs.
+		2.3. Dans Encadrements:
+		  -Une section qui présente un tableau à 5 colonnes intitulé: Encadrements Scientifiques (qui présentent les encadrements scientifique de l'enseignant). Colonne 1 : Titre du projet de l'apprenant. Colonne 2: Nom & Prénoms de l'apprenants. Colonne 3:Niveau d'études de l'apprenant. colonne 4: Année de l'encadrement. Colonne 5: Description du projet.
+		2.4. Dans Publications scientifiques:
+		  - La liste de toutes les publication scientifiques de l'enseignant chercheurs. Chaque publication scientiques comprends : Nom & Prénoms des auteurs, l'intitulé de la publication scientique, année de parution et un lien vers la publications.
+
+6- Dans le menu Projets:
+		-Un section qui présnte un aperçu de tout les projects de l'université. Pour chaque projets, on affiche UNE PHOTO, Intitulé, Enseignants(Coordonateur: Nom, Prénoms, Grades, Spécialités), Status(En cous, Achevé) Et un bouton en savoirs plus qui mène vers une page qui presente les détails du projet: (Intitulé, Enseignants (Coordonnateurs: Nom, Prénoms, Grades, Spécialités),date de debut, date de fin, equipe de recherche, financement, média(Photo + Vidéo). 
+
+7- Dans le menu Actualité:
+		7.1 La page du sous menu Actualitées:
+		  -Une unique section qui presente les actualités, chaque actualités est dans un rectangle et comporte Photo, Intitulé, et un aperçu du texte qui décrit l'actualité et un bouton lire la suite: qui mène vers une page où s'affiche les mêmes éléments mais le texte s'affiche en entièreté.
+		7.2- La page du sous menu Photothèque:
+		  -Une section qui montre un aperçu de chaque évènements: Une photo et l'intitulé. Et un bouton voir l'album qui permet de voir l'album en entièreté (toutes les photo).
+		7.3- La page du sous menu Vidéothèque:
+		  - Même chose que pour photothèque, mais quand on clique sur  voir l'album on verra toute les vidéos lié à l'évènement.
+8- Dans le menu contact:
+		-Une section montrant un formulaire avec les champs, NOM,Prénoms, Mail, Message et un ReCAPTCHA pour ne pas recevoirs des spams. Lesinformations du formulaires sont envoyées vers un fichiers json. et sont bien structurés
+		  
+		  
