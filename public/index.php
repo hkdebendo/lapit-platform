@@ -45,7 +45,9 @@ if (file_exists($controllerFile)) {
 
 // 404 si non trouvé
 header("HTTP/1.0 404 Not Found");
-echo "Page non trouvée";
+require_once __DIR__ . '/../app/views/errors/404.php';
+exit;
+
 ?>
 
 

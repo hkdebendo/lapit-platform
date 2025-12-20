@@ -47,7 +47,7 @@
           <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mb-6 rounded-full transform origin-left transition-all duration-1000 delay-700"
                x-show="current === i"
                x-transition:enter="transition-all duration-1000 delay-700"
-               x-transition:enter-start="scale-x-0"
+               x-transition:enter-start="scale-x-0" 
                x-transition:enter-end="scale-x-100">
           </div>
           

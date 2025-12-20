@@ -114,60 +114,59 @@
 </section>
 
 <div class="section-divider"></div>
-
-<!-- Section 3: Direction du LaPIT -->
+<!--Section 3 -->
 <section class="container mx-auto px-4 py-8 fade-in">
     <div class="text-center mb-8">
         <h2 class="text-3xl font-bold text-gray-800 mb-2">Direction du LaPIT</h2>
         <div class="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Exemple de cartes administrateurs  -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden image-hover transform transition-all duration-300 hover:shadow-xl">
-            <img 
-                src="https://via.placeholder.com/300x200/f8f9fa/6c757d?text=Directeur" 
-                alt="Directeur du LaPIT" 
-                class="w-full h-48 object-cover"
-            >
-            <div class="p-4">
-                <h3 class="text-xl font-semibold mb-1 text-gray-800">Dr. Exemple Directeur</h3>
-                <p class="text-gray-600 mb-2 font-medium">Directeur du Laboratoire</p>
-                <p class="text-sm text-gray-500 mb-1">directeur@lapit.edu</p>
-                <p class="text-sm text-gray-500">+229 XX XX XX XX</p>
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 align-items-stretch">
+        
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden image-hover transform transition-all duration-300 hover:shadow-xl flex flex-col">
+            <div class="relative w-full h-96"> <img 
+                    src="<?= config('base_url') ?>/images/dr.jpg" 
+                    alt="Directeur du LaPIT" 
+                    class="w-full h-full object-cover object-top"
+                >
+                </div>
+            
+            <div class="p-6 flex-grow text-center md:text-left">
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">Prof Alain Alexis C. N. ADOMOU</h3>
+                <div class="inline-block bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                    Directeur du Laboratoire
+                </div>
+                <div class="space-y-1 text-gray-600">
+                    <p class="font-medium text-lg">Professeur Titulaire</p>
+                    <p class="text-sm hover:text-red-600 transition-colors">
+                        <a href="mailto:adomounicaise@unstim.bj">adomounicaise@unstim.bj</a>
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden image-hover transform transition-all duration-300 hover:shadow-xl">
-            <img 
-                src="https://via.placeholder.com/300x200/f8f9fa/6c757d?text=Directeur+Adjoint" 
-                alt="Directeur Adjoint du LaPIT" 
-                class="w-full h-48 object-cover"
-            >
-            <div class="p-4">
-                <h3 class="text-xl font-semibold mb-1 text-gray-800">Dr. Exemple Adjoint</h3>
-                <p class="text-gray-600 mb-2 font-medium">Directeur Adjoint</p>
-                <p class="text-sm text-gray-500 mb-1">adjoint@lapit.edu</p>
-                <p class="text-sm text-gray-500">+229 XX XX XX XX</p>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden image-hover transform transition-all duration-300 hover:shadow-xl flex flex-col">
+            <div class="relative w-full h-96"> <img 
+                    src="<?= config('base_url') ?>/images/dra.jpg" 
+                    alt="Directeur Adjoint du LaPIT" 
+                    class="w-full h-full object-cover object-top"
+                >
+            </div>
+            
+            <div class="p-6 flex-grow text-center md:text-left">
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">MC Gildas David Farid ADAMON</h3>
+                <div class="inline-block bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                    Directeur Adjoint
+                </div>
+                <div class="space-y-1 text-gray-600">
+                    <p class="font-medium text-lg">Maître de Conférences</p>
+                    <p class="text-sm hover:text-red-600 transition-colors">
+                        <a href="mailto:adamon.david@unstim.bj">adamon.david@unstim.bj</a>
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden image-hover transform transition-all duration-300 hover:shadow-xl">
-            <img 
-                src="https://via.placeholder.com/300x200/f8f9fa/6c757d?text=Secrétaire+Scientifique" 
-                alt="Secrétaire Scientifique du LaPIT" 
-                class="w-full h-48 object-cover"
-            >
-            <div class="p-4">
-                <h3 class="text-xl font-semibold mb-1 text-gray-800">Dr. Exemple Secrétaire</h3>
-                <p class="text-gray-600 mb-2 font-medium">Secrétaire Scientifique</p>
-                <p class="text-sm text-gray-500 mb-1">secretaire@lapit.edu</p>
-                <p class="text-sm text-gray-500">+229 XX XX XX XX</p>
-            </div>
-        </div>
-    </div>
-
-   
     </div>
 </section>
 

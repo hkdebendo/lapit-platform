@@ -7,3 +7,4 @@
   # Sinon on redirige tout vers index.php
   RewriteRule ^ index.php [L,QSA]
 </IfModule>
+ErrorDocument 404 /lapit/public/404.php

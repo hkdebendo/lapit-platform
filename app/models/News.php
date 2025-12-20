@@ -19,7 +19,7 @@ class News extends Model
                 date_posted,
                 photo_path
              FROM news
-             ORDER BY date_posted DESC, created_at DESC"
+             ORDER BY date_posted ASC, created_at ASC"
         );
     }
 
@@ -53,7 +53,7 @@ class News extends Model
                 date_posted,
                 photo_path
              FROM news
-             ORDER BY date_posted DESC, created_at DESC
+             ORDER BY date_posted ASC, created_at ASC
              LIMIT :limit",
             ['limit' => $limit]
         );

@@ -170,7 +170,7 @@
                                 </svg>
                                 <div class="text-left">
                                     <div class="font-semibold text-gray-800 text-xs">Université</div>
-                                    <div class="text-gray-600"><?= htmlspecialchars($p['university'], ENT_QUOTES) ?></div>
+                                    <div class="text-gray-600"><?= htmlspecialchars($p['university'] ?? "", ENT_QUOTES) ?></div>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                             <span class="font-semibold text-gray-800 text-xs">Contact Principal</span>
                         </div>
                         <div class="text-gray-700 font-medium">
-                            <?= htmlspecialchars($p['contact_name'], ENT_QUOTES) ?>
+                            <?= htmlspecialchars($p['contact_name']?? "", ENT_QUOTES) ?>
                         </div>
                     </div>
 
@@ -199,9 +199,9 @@
                                 <span class="text-xs font-semibold text-gray-800">Email</span>
                             </div>
                         </div>
-                        <a href="mailto:<?= htmlspecialchars($p['contact_email'], ENT_QUOTES) ?>" 
+                        <a href="mailto:<?= htmlspecialchars($p['contact_email'] ?? "", ENT_QUOTES) ?>" 
                            class="contact-link text-lapit-lightblue hover:text-lapit-darkblue font-medium text-sm block mt-1 truncate">
-                            <?= htmlspecialchars($p['contact_email'], ENT_QUOTES) ?>
+                            <?= htmlspecialchars($p['contact_email']?? "", ENT_QUOTES) ?>
                         </a>
                     </div>
 
@@ -214,7 +214,7 @@
                                 </svg>
                                 <div class="text-left">
                                     <div class="text-xs font-semibold text-gray-800">Téléphone</div>
-                                    <div class="text-gray-700 text-sm"><?= htmlspecialchars($p['contact_phone'], ENT_QUOTES) ?></div>
+                                    <div class="text-gray-700 text-sm"><?= htmlspecialchars($p['contact_phone'] ?? "", ENT_QUOTES) ?></div>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +224,7 @@
                 <!-- Bouton site web  -->
                 <?php if(!empty($p['website_url'])): ?>
                     <div class="mt-6 pt-4 border-t border-gray-100">
-                        <a href="<?= htmlspecialchars($p['website_url'], ENT_QUOTES) ?>" 
+                        <a href="<?= htmlspecialchars($p['website_url']?? "", ENT_QUOTES) ?>" 
                            target="_blank" 
                            class="website-btn inline-flex items-center px-4 py-2 text-white rounded-xl font-semibold text-sm shadow-lg">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
