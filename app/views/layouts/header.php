@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -27,216 +28,242 @@
       }
     }
   </script>
+  <style>
+    /* Animation fluide uniquement pour le mobile */
+    #mobile-nav {
+      transition: all 0.4s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #mobile-nav.open {
+      max-height: 80vh;
+      opacity: 1;
+    }
+    .m-submenu {
+      transition: all 0.3s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .m-submenu.open {
+      max-height: 300px;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-inter">
-  <!-- Bande supérieure bleu sombre -->
-  <header>
-    <div class="bg-lapit-darkblue text-white px-4 py-2 flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <span class="font-semibold">Laboratoire des Procédés et de l'Innovation <br> Technologique (LaPIT)</span>
-      </div>
-      <div class="hidden md:block">
-        <input type="text" placeholder="Rechercher..." class="px-2 py-1 rounded text-gray-800">
-      </div>
-      <div>
-        <a href="<?= config('base_url') ?>/auth/login" class="flex items-center space-x-1 hover:text-lapit-yellow">
-          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"/></svg>
-          <span class="hidden sm:inline">Se connecter</span>
-        </a>
+  
+<nav id="main-header" class="flex flex-col lg:flex-row lg:h-[120px] fixed top-0 w-full z-30 bg-white lg:bg-transparent">
+  <img src="<?= config('base_url') ?>/images/logo-lapit.png" alt="logo" 
+       class="h-[60px] lg:h-[90px] absolute z-40 bg-white top-3 lg:top-4 left-[2%] transition-transform duration-300 hover:scale-110">
+  
+  <div class="w-full">
+    <div class="bg-lapit-darkblue text-white p-[5px] flex justify-center">
+      <ul class="text-sm hidden lg:flex items-center w-[70%] justify-around">
+        <li class="text-5xl font-black">INSTI</li>
+        <li class="w-[200px] text-justify">Institut Nationale Supérieur de Technologie Industrielle de Lokossa</li>
+        <li class="w-[340px] h-[1px] bg-white"></li>
+        <li><i class="fa-solid fa-user text-sm mr-[5px]"></i><span>Accès rapide</span></li>
+        <li><i class="fa-solid fa-user text-sm mr-[5px]"></i><span>Nous écrire</span></li>
+      </ul>
+      <div class="lg:hidden flex justify-center w-[100%]">
+        <ul class="flex lg:hidden items-center justify-around gap-4 text-[10px] py-1 pr-2">
+          <li class="text-2xl font-black">INSTI</li>
+          <li><i class="fa-solid fa-user mr-2"></i>Accès rapide</li>
+          <li><i class="fa-solid fa-user mr-2"></i>Nous écrire</li>
+        </ul>
       </div>
     </div>
-    <!-- Navbar blanche -->
-    <nav class="bg-white shadow">
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-center py-4">
-          <div class="flex items-center justify-between w-full max-w-6xl">
-            <div class="flex items-center">
-              <img src="<?= config('base_url') ?>/images/logo-lapit.png" alt="Logo LaPIT" class="h-14">
-            </div>
-            
-            <div class="flex items-center space-x-8">
-              <ul class="hidden lg:flex space-x-8">
-                <li><a href="<?= config('base_url') ?>" class="hover:text-lapit-lightblue font-medium font-poppins transition-colors">Accueil</a></li>
-                <li class="relative dropdown-item">
-                  <a href="#" class="hover:text-lapit-lightblue dropdown-trigger flex items-center font-medium font-poppins transition-colors">
-                    LaPIT
-                    <svg class="ml-1 h-4 w-4 transition-transform dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
-                  </a>
-                  <ul class="absolute left-0 mt-2 bg-white shadow-md rounded hidden dropdown-menu z-50 min-w-48">
-                    <li><a href="<?= config('base_url') ?>/direction" class="block px-4 py-2 hover:bg-gray-100 font-inter">Direction</a></li>
-                    <li><a href="<?= config('base_url') ?>/vision" class="block px-4 py-2 hover:bg-gray-100 font-inter">Mission & Vision</a></li>
-                    <li><a href="<?= config('base_url') ?>/unit" class="block px-4 py-2 hover:bg-gray-100 font-inter">Unités de recherche</a></li>
-                    <li><a href="<?= config('base_url') ?>/partner" class="block px-4 py-2 hover:bg-gray-100 font-inter">Laboratoires partenaires</a></li>
-                    <li><a href="<?= config('base_url') ?>/downloads" class="block px-4 py-2 hover:bg-gray-100 font-inter">Téléchargement</a></li>
-                  </ul>
-                </li>
-                <li><a href="<?= config('base_url') ?>/staff" class="hover:text-lapit-lightblue font-medium font-poppins transition-colors">Travaux des Chercheurs</a></li>
-                <li><a href="<?= config('base_url') ?>/project" class="hover:text-lapit-lightblue font-medium font-poppins transition-colors">Projets</a></li>
-                <li class="relative dropdown-item">
-                  <a href="#" class="hover:text-lapit-lightblue dropdown-trigger flex items-center font-medium font-poppins transition-colors">
-                    Actualités
-                    <svg class="ml-1 h-4 w-4 transition-transform dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
-                  </a>
-                  <ul class="absolute left-0 mt-2 bg-white shadow-md rounded hidden dropdown-menu z-50 min-w-48">
-                    <li><a href="<?= config('base_url') ?>/news" class="block px-4 py-2 hover:bg-gray-100 font-inter">Actualités</a></li>
-                    <li><a href="<?= config('base_url') ?>/photos" class="block px-4 py-2 hover:bg-gray-100 font-inter">Photothèque</a></li>
-                    <li><a href="<?= config('base_url') ?>/videos" class="block px-4 py-2 hover:bg-gray-100 font-inter">Vidéothèque</a></li>
-                  </ul>
-                </li>
-                <li><a href="<?= config('base_url') ?>/contact" class="hover:text-lapit-lightblue font-medium font-poppins transition-colors">Contact</a></li>
-              </ul>
-              
-              <!-- Menu mobile -->
-              <button class="lg:hidden flex flex-col justify-center items-center w-8 h-8 mobile-menu-btn">
-                <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
-                <span class="block w-6 h-0.5 bg-gray-700 mb-1 transition-all duration-300"></span>
-                <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-              </button>
-            </div>
-            
-            <div class="flex items-center">
-              <img src="<?= config('base_url') ?>/images/logo-insti.png" alt="Logo INSTI" class="h-14">
-            </div>
-          </div>
-        </div>
-        
-        <!-- Menu mobile déroulant -->
-        <div class="lg:hidden mobile-menu hidden">
-          <div class="py-4 border-t">
-            <!-- Barre de recherche mobile -->
-            <div class="mb-4 md:hidden">
-              <input type="text" placeholder="Rechercher..." class="w-full px-3 py-2 border rounded text-gray-800">
-            </div>
-            
-            <ul class="space-y-2">
-              <li><a href="<?= config('base_url') ?>" class="block py-2 hover:text-lapit-lightblue font-medium font-poppins">Accueil</a></li>
-              <li class="mobile-dropdown">
-                <a href="#" class="flex items-center justify-between py-2 hover:text-lapit-lightblue mobile-dropdown-trigger font-medium font-poppins">
-                  LaPIT
-                  <svg class="h-4 w-4 transition-transform mobile-dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                  </svg>
-                </a>
-                <ul class="hidden mobile-dropdown-menu ml-4 mt-2 space-y-1">
-                  <li><a href="<?= config('base_url') ?>/direction" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Direction</a></li>
-                  <li><a href="<?= config('base_url') ?>/vision" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Mission & Vision</a></li>
-                  <li><a href="<?= config('base_url') ?>/unit" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Unités de recherche</a></li>
-                  <li><a href="<?= config('base_url') ?>/partner" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Laboratoires partenaires</a></li>
-                  <li><a href="<?= config('base_url') ?>/downloads" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Téléchargement</a></li>
-                </ul>
-              </li>
-              <li><a href="<?= config('base_url') ?>/staff" class="block py-2 hover:text-lapit-lightblue font-medium font-poppins">Travaux des Chercheurs</a></li>
-              <li><a href="<?= config('base_url') ?>/project" class="block py-2 hover:text-lapit-lightblue font-medium font-poppins">Projets</a></li>
-              <li class="mobile-dropdown">
-                <a href="#" class="flex items-center justify-between py-2 hover:text-lapit-lightblue mobile-dropdown-trigger font-medium font-poppins">
-                  Actualités
-                  <svg class="h-4 w-4 transition-transform mobile-dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                  </svg>
-                </a>
-                <ul class="hidden mobile-dropdown-menu ml-4 mt-2 space-y-1">
-                  <li><a href="<?= config('base_url') ?>/news" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Actualités</a></li>
-                  <li><a href="<?= config('base_url') ?>/photos" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Photothèque</a></li>
-                  <li><a href="<?= config('base_url') ?>/videos" class="block py-1 text-sm text-gray-600 hover:text-lapit-lightblue font-inter">Vidéothèque</a></li>
-                </ul>
-              </li>
-              <li><a href="<?= config('base_url') ?>/contact" class="block py-2 hover:text-lapit-lightblue font-medium font-poppins">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Gestion des dropdowns desktop
-      const dropdownItems = document.querySelectorAll('.dropdown-item');
-      
-      dropdownItems.forEach(item => {
-        const trigger = item.querySelector('.dropdown-trigger');
-        const menu = item.querySelector('.dropdown-menu');
-        const arrow = item.querySelector('.dropdown-arrow');
-        
-        trigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Fermer tous les autres menus
-          dropdownItems.forEach(otherItem => {
-            if (otherItem !== item) {
-              const otherMenu = otherItem.querySelector('.dropdown-menu');
-              const otherArrow = otherItem.querySelector('.dropdown-arrow');
-              otherMenu.classList.add('hidden');
-              otherArrow.classList.remove('rotate-180');
-            }
-          });
-          
-          // Toggle le menu actuel
-          if (menu.classList.contains('hidden')) {
-            menu.classList.remove('hidden');
-            arrow.classList.add('rotate-180');
-          } else {
-            menu.classList.add('hidden');
-            arrow.classList.remove('rotate-180');
-          }
-        });
-      });
-      
-      // Fermer les menus en cliquant ailleurs
-      document.addEventListener('click', function() {
-        dropdownItems.forEach(item => {
-          const menu = item.querySelector('.dropdown-menu');
-          const arrow = item.querySelector('.dropdown-arrow');
-          menu.classList.add('hidden');
-          arrow.classList.remove('rotate-180');
-        });
-      });
-      
-      // Menu mobile
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const mobileMenuSpans = mobileMenuBtn.querySelectorAll('span');
-      
-      mobileMenuBtn.addEventListener('click', function() {
-        if (mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.remove('hidden');
-          // Animation hamburger vers X
-          mobileMenuSpans[0].classList.add('rotate-45', 'translate-y-2');
-          mobileMenuSpans[1].classList.add('opacity-0');
-          mobileMenuSpans[2].classList.add('-rotate-45', '-translate-y-2');
-        } else {
-          mobileMenu.classList.add('hidden');
-          // Animation X vers hamburger
-          mobileMenuSpans[0].classList.remove('rotate-45', 'translate-y-2');
-          mobileMenuSpans[1].classList.remove('opacity-0');
-          mobileMenuSpans[2].classList.remove('-rotate-45', '-translate-y-2');
+    <div class="flex justify-center bg-[#fafafa] shadow-xl w-full">
+      <ul class="hidden lg:flex items-center py-[14px] w-full justify-center gap-9 text-lg">
+        <li><a href="<?= config('base_url') ?>" class="nav-link hover:border-b-2 py-[1px] hover:border-[#1e3a8a] hover:text-[#1e3a8a] transition duration-300">Acceuil</a></li>
+        <li class="relative dropdown-item group">
+          <a href="" class="hover:border-b-2 py-[1px] hover:border-[#1e3a8a] hover:text-[#1e3a8a] transition duration-300">LaPIT <i class="fa-solid fa-chevron-down text-sm"></i></a>
+          <ul class="absolute left-0 mt-2 bg-white shadow-md rounded hidden group-hover:block dropdown-menu z-50 min-w-48">
+            <li><a href="<?= config('base_url') ?>/direction" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Direction</a></li>
+            <li><a href="<?= config('base_url') ?>/vision" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Mission & Vision</a></li>
+            <li><a href="<?= config('base_url') ?>/unit" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Unités de recherche</a></li>
+            <li><a href="<?= config('base_url') ?>/partner" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Laboratoires partenaires</a></li>
+            <li><a href="<?= config('base_url') ?>/downloads" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Téléchargement</a></li>
+          </ul>
+        </li>
+        <li><a href="<?= config('base_url') ?>/staff" class="nav-link hover:border-b-2 py-[1px] hover:border-[#1e3a8a] hover:text-[#1e3a8a] transition duration-300">Travaux des chercheurs</a></li>
+        <li><a href="<?= config('base_url') ?>/project" class="nav-link hover:border-b-2 py-[1px] hover:border-[#1e3a8a] hover:text-[#1e3a8a] transition duration-300">Projects</a></li>
+        <li class="relative dropdown-item group">
+          <a href="" class="hover:border-b-2 py-[1px] hover:border-[#1e3a8a] hover:text-[#1e3a8a] transition duration-300">Actualites <i class="fa-solid fa-chevron-down text-sm"></i></a>
+          <ul class="absolute left-0 mt-2 bg-white shadow-md rounded hidden group-hover:block dropdown-menu z-50 min-w-48">
+            <li><a href="<?= config('base_url') ?>/news" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Actualités</a></li>
+            <li><a href="<?= config('base_url') ?>/photos" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Photothèque</a></li>
+            <li><a href="<?= config('base_url') ?>/videos" class="nav-link block px-4 py-2 hover:bg-gray-100 font-inter">Vidéothèque</a></li>
+          </ul>
+        </li>
+        <li><a href="<?= config('base_url') ?>/contact" class="nav-link hover:border-b-2 py-[1px] hover:border-[#1e3a8a] transition duration-300">Contact</a></li>
+      </ul>
+
+      <div class="lg:hidden flex items-center justify-center ">
+        <button onclick="toggleMobileMenu()" class="text-[#1e3a8a] text-3xl p-2">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <img src="<?= config('base_url') ?>/images/logo-insti.png" alt="" 
+       class="h-[70px] lg:h-[110px] z-40 bg-white rounded-full absolute right-[3%] lg:right-[5%] top-3 lg:top-2 transition-transform duration-300 hover:scale-110">
+
+  <div id="mobile-nav" class="lg:hidden bg-white w-full border-t shadow-inner">
+    <ul class="flex flex-col p-4 gap-4 font-medium text-gray-700">
+      <li><a href="<?= config('base_url') ?>">Acceuil</a></li>
+      <li>
+        <div onclick="toggleSub('m-lapit')" class="flex justify-between items-center cursor-pointer">LaPIT <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" id="icon-m-lapit"></i></div>
+        <ul id="m-lapit" class="m-submenu pl-4 mt-2 space-y-2 border-l-2 border-gray-100">
+          <li><a href="<?= config('base_url') ?>/direction">Direction</a></li>
+          <li><a href="<?= config('base_url') ?>/vision">Mission & Vision</a></li>
+          <li><a href="<?= config('base_url') ?>/unit">Unités de recherche</a></li>
+          <li><a href="<?= config('base_url') ?>/partner">Laboratoires partenaires</a></li>
+          <li><a href="<?= config('base_url') ?>/downloads">Téléchargement</a></li>
+        </ul>
+      </li>
+      <li><a href="<?= config('base_url') ?>/staff">Travaux des chercheurs</a></li>
+      <li><a href="<?= config('base_url') ?>/project">Projects</a></li>
+      <li>
+        <div onclick="toggleSub('m-actu')" class="flex justify-between items-center cursor-pointer">Actualités <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" id="icon-m-actu"></i></div>
+        <ul id="m-actu" class="m-submenu pl-4 mt-2 space-y-2 border-l-2 border-gray-100">
+          <li><a href="<?= config('base_url') ?>/news">Actualités</a></li>
+          <li><a href="<?= config('base_url') ?>/photos">Photothèque</a></li>
+          <li><a href="<?= config('base_url') ?>/videos">Vidéothèque</a></li>
+        </ul>
+      </li>
+      <li><a href="<?= config('base_url') ?>/contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+function toggleSub(id) {
+  const sub = document.getElementById(id);
+  const icon = document.getElementById('icon-' + id);
+  sub.classList.toggle('open');
+  if(icon) icon.classList.toggle('rotate-180');
+}
+</script>
+
+<script>
+/* VOTRE SCRIPT ORIGINAL DESKTOP - AUCUN CHANGEMENT ICI */
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('main-header');
+  if (!header) return;
+
+  const dropdownItems = header.querySelectorAll('.dropdown-item');
+  const navLinks = header.querySelectorAll('.nav-link, .dropdown-item > a');
+
+  const ACTIVE_CLASSES = ['border-b-2','border-[#1e3a8a]','text-[#1e3a8a]','font-bold'];
+
+  const clearActive = () => {
+    navLinks.forEach(l => l.classList.remove(...ACTIVE_CLASSES));
+  };
+
+  const setActive = (link) => {
+    if (!link) return;
+    link.classList.add(...ACTIVE_CLASSES);
+    const parentDropdown = link.closest('.dropdown-item');
+    if (parentDropdown) {
+      const parentLink = parentDropdown.querySelector(':scope > a');
+      if (parentLink) parentLink.classList.add(...ACTIVE_CLASSES);
+    }
+  };
+
+  const normalizePath = (href) => {
+    try {
+      const url = new URL(href, window.location.origin);
+      return url.pathname.replace(/\/+$/, '');
+    } catch {
+      return href;
+    }
+  };
+
+  const saved = localStorage.getItem('activeNavPath');
+  const currentPath = normalizePath(window.location.pathname);
+
+  let matched = false;
+  if (saved) {
+    const savedPath = normalizePath(saved);
+    const link = Array.from(navLinks).find(l => normalizePath(l.getAttribute('href')) === savedPath);
+    if (link) {
+      clearActive();
+      setActive(link);
+      matched = true;
+    }
+  }
+  if (!matched) {
+    const link = Array.from(navLinks).find(l => normalizePath(l.getAttribute('href')) === currentPath);
+    if (link) {
+      clearActive();
+      setActive(link);
+    }
+  }
+
+  dropdownItems.forEach(item => {
+    const trigger = item.querySelector(':scope > a');
+    const menu = item.querySelector(':scope > .dropdown-menu');
+    if (!trigger || !menu) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdownItems.forEach(other => {
+        if (other !== item) {
+          const otherMenu = other.querySelector(':scope > .dropdown-menu');
+          if (otherMenu) otherMenu.classList.add('hidden');
         }
       });
-      
-      // Dropdowns mobile
-      const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-      
-      mobileDropdowns.forEach(dropdown => {
-        const trigger = dropdown.querySelector('.mobile-dropdown-trigger');
-        const menu = dropdown.querySelector('.mobile-dropdown-menu');
-        const arrow = dropdown.querySelector('.mobile-dropdown-arrow');
-        
-        trigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          if (menu.classList.contains('hidden')) {
-            menu.classList.remove('hidden');
-            arrow.classList.add('rotate-180');
-          } else {
-            menu.classList.add('hidden');
-            arrow.classList.remove('rotate-180');
-          }
-        });
+      menu.classList.toggle('hidden');
+    });
+
+    menu.querySelectorAll('a').forEach(child => {
+      child.addEventListener('click', () => {
+        const childHref = child.getAttribute('href');
+        localStorage.setItem('activeNavPath', childHref);
+        clearActive();
+        setActive(child);
       });
     });
-  </script>
+  });
+
+  navLinks.forEach(link => {
+    if (link.closest('.dropdown-menu')) return;
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      localStorage.setItem('activeNavPath', href);
+      clearActive();
+      setActive(link);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown-item')) {
+      dropdownItems.forEach(item => {
+        const menu = item.querySelector(':scope > .dropdown-menu');
+        if (menu) menu.classList.add('hidden');
+      });
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dropdownItems.forEach(item => {
+        const menu = item.querySelector(':scope > .dropdown-menu');
+        if (menu) menu.classList.add('hidden');
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
