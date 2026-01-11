@@ -99,148 +99,103 @@
 </head>
 <body class="gradient-bg min-h-screen">
 
-<section class="container mx-auto px-4 py-8 lg:py-12">
+<section class="container mx-auto px-4 mt-[26%] lg:mt-[10%]  lg:py-12 mt-[10%]">
     <!-- En-tête moderne avec statistiques -->
-    <div class="text-center mb-12 fade-in">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue rounded-2xl mb-6 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+    <div class="text-center mb-20 fade-in">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-lapit-lightblue to-lapit-darkblue rounded-[2rem] mb-8 shadow-2xl shadow-lapit-darkblue/20 ring-4 ring-white">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
             </svg>
         </div>
         
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold title-gradient mb-4">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black title-gradient mb-6 tracking-tight">
             Laboratoires Partenaires
         </h2>
         
-        <div class="w-32 h-1 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue mx-auto rounded-full mb-6"></div>
+        <div class="flex justify-center mb-8">
+            <div class="w-24 h-1.5 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue rounded-full opacity-80"></div>
+        </div>
         
-        <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+        <p class="text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
             Découvrez notre réseau de partenaires académiques et scientifiques qui contribuent à l'excellence de nos recherches
         </p>
 
-        <!-- Mini statistiques -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div class="text-2xl font-bold text-lapit-darkblue"><?= count($partnersList) ?></div>
-                <div class="text-sm text-gray-600 font-medium">Partenaires Actifs</div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto px-4">
+            
+            <div class="group bg-blue-50/50 backdrop-blur-sm rounded-[1.8rem] p-6 border border-blue-100 shadow-sm hover:shadow-blue-200/50 transition-all duration-300">
+                <div class="text-3xl font-black text-blue-700 mb-1 group-hover:scale-110 transition-transform tracking-tighter">
+                    <?= count($partnersList) ?>
+                </div>
+                <div class="text-[10px] text-blue-900/60 font-black uppercase tracking-[0.2em]">Partenaires Actifs</div>
             </div>
-            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div class="text-2xl font-bold text-lapit-lightblue">100%</div>
-                <div class="text-sm text-gray-600 font-medium">Collaboration</div>
+
+            <div class="group bg-indigo-50/50 backdrop-blur-sm rounded-[1.8rem] p-6 border border-indigo-100 shadow-sm hover:shadow-indigo-200/50 transition-all duration-300">
+                <div class="text-3xl font-black text-indigo-700 mb-1 group-hover:scale-110 transition-transform tracking-tighter">
+                    100%
+                </div>
+                <div class="text-[10px] text-indigo-900/60 font-black uppercase tracking-[0.2em]">Collaboration</div>
             </div>
-            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div class="text-2xl font-bold title-gradient">∞</div>
-                <div class="text-sm text-gray-600 font-medium">Opportunités</div>
+
+            <div class="group bg-emerald-50/50 backdrop-blur-sm rounded-[1.8rem] p-6 border border-emerald-100 shadow-sm hover:shadow-emerald-200/50 transition-all duration-300">
+                <div class="text-4xl font-black text-emerald-700 mb-1 group-hover:scale-110 transition-transform leading-none">
+                    ∞
+                </div>
+                <div class="text-[10px] text-emerald-900/60 font-black uppercase tracking-[0.2em]">Opportunités</div>
             </div>
+
         </div>
     </div>
 
     <!-- Grille des partenaires -->
-    <div class="grid gap-6 lg:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <?php foreach($partnersList as $index => $p): ?>
-            <div class="partner-card rounded-2xl p-6 text-center fade-in stagger-animation" 
-                 style="--delay: <?= $index ?>">
-                
-                <!-- Badge de partenariat -->
-                <div class="absolute top-4 right-4">
-                    <div class="partnership-badge w-3 h-3 rounded-full"></div>
-                </div>
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <?php foreach($partnersList as $index => $p): ?>
+        <div class="group bg-white border border-slate-200 rounded-xl p-8 transition-all duration-300 hover:border-blue-500 hover:shadow-xl fade-in shadow-sm relative overflow-hidden" 
+             style="--delay: <?= $index ?>">
+            
+            <div class="absolute top-0 left-0 w-full h-1 bg-slate-100 group-hover:bg-blue-500 transition-colors"></div>
 
-                <!-- Logo avec container stylisé -->
-                <div class="logo-container w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-3">
-                    <img 
-                        src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path'], ENT_QUOTES) ?>" 
-                        alt="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" 
-                        class="w-full h-full object-contain"
-                    >
-                </div>
+            <div class="h-24 w-full flex items-center justify-center mb-8 bg-white">
+                <img 
+                    src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path']?? "", ENT_QUOTES) ?>" 
+                    alt="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" 
+                    class="max-h-full max-w-[160px] object-contain transition-transform duration-500 group-hover:scale-105"
+                >
+            </div>
 
-                <!-- Nom du partenaire -->
-                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 leading-tight">
-                    <?= htmlspecialchars($p['name'], ENT_QUOTES) ?>
+            <div class="text-center mb-8">
+                <h3 class="text-lg font-black text-slate-900 uppercase tracking-tight leading-tight min-h-[3rem] flex items-center justify-center">
+                    <?= htmlspecialchars($p['name']?? "", ENT_QUOTES) ?>
                 </h3>
+            </div>
 
-                <!-- Informations détaillées -->
-                <div class="space-y-3 text-sm">
-                    <?php if(!empty($p['university'])): ?>
-                        <div class="bg-blue-50 rounded-lg p-3 border-l-4 border-lapit-lightblue">
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 text-lapit-lightblue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                                </svg>
-                                <div class="text-left">
-                                    <div class="font-semibold text-gray-800 text-xs">Université</div>
-                                    <div class="text-gray-600"><?= htmlspecialchars($p['university'] ?? "", ENT_QUOTES) ?></div>
-                                </div>
-                            </div>
+            <div class="space-y-3 border-t border-slate-50 pt-6">
+                <?php if(!empty($p['university'])): ?>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Institution</p>
+                            <p class="text-xs font-bold text-slate-700 truncate"><?= htmlspecialchars($p['university']?? "", ENT_QUOTES) ?></p>
                         </div>
-                    <?php endif; ?>
-
-                    <!-- Contact principal -->
-                    <div class="bg-gray-50 rounded-lg p-3">
-                        <div class="flex items-center mb-2">
-                            <svg class="w-4 h-4 text-lapit-darkblue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                            <span class="font-semibold text-gray-800 text-xs">Contact Principal</span>
-                        </div>
-                        <div class="text-gray-700 font-medium">
-                            <?= htmlspecialchars($p['contact_name']?? "", ENT_QUOTES) ?>
-                        </div>
-                    </div>
-
-                    <!-- Email avec style moderne -->
-                    <div class="bg-green-50 rounded-lg p-3">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span class="text-xs font-semibold text-gray-800">Email</span>
-                            </div>
-                        </div>
-                        <a href="mailto:<?= htmlspecialchars($p['contact_email'] ?? "", ENT_QUOTES) ?>" 
-                           class="contact-link text-lapit-lightblue hover:text-lapit-darkblue font-medium text-sm block mt-1 truncate">
-                            <?= htmlspecialchars($p['contact_email']?? "", ENT_QUOTES) ?>
-                        </a>
-                    </div>
-
-                    <!-- Téléphone si disponible -->
-                    <?php if(!empty($p['contact_phone'])): ?>
-                        <div class="bg-purple-50 rounded-lg p-3">
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                                </svg>
-                                <div class="text-left">
-                                    <div class="text-xs font-semibold text-gray-800">Téléphone</div>
-                                    <div class="text-gray-700 text-sm"><?= htmlspecialchars($p['contact_phone'] ?? "", ENT_QUOTES) ?></div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Bouton site web  -->
-                <?php if(!empty($p['website_url'])): ?>
-                    <div class="mt-6 pt-4 border-t border-gray-100">
-                        <a href="<?= htmlspecialchars($p['website_url']?? "", ENT_QUOTES) ?>" 
-                           target="_blank" 
-                           class="website-btn inline-flex items-center px-4 py-2 text-white rounded-xl font-semibold text-sm shadow-lg">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0 9c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 18c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9"/>
-                            </svg>
-                            Visiter le site
-                            <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                            </svg>
-                        </a>
                     </div>
                 <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
 
+               
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 gap-3">
+                
+                
+                <?php if(!empty($p['website_url'])): ?>
+                    <a href="<?= htmlspecialchars($p['website_url']?? "", ENT_QUOTES) ?>" target="_blank"
+                       class="flex items-center justify-center gap-2 py-2.5 bg-slate-900 text-white rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-700 transition-all">
+                        Explorer
+                    </a>
+                <?php endif; ?>
+            </div>
+
+        </div>
+    <?php endforeach; ?>
+</div>
     <!-- Section call-to-action -->
     <div class="mt-16 text-center fade-in">
         <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-2xl mx-auto">

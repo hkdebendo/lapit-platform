@@ -1,4 +1,31 @@
-<section class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+<style>
+  .global-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/hexellence.png'), 
+                              linear-gradient(180deg, #0f172a 0%, #f5f5dc 100%);
+            background-size: 200px, 100%;
+            background-attachment: fixed;
+        }
+
+        /* Style spécifique pour les Arches Mission/Vision */
+        .content-arch {
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            padding: 10px;
+            border-radius: 999px 999px 40px 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .inner-arch {
+            border-radius: 999px 999px 30px 30px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+</style>
+<section class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 mt-[9.5%]">
   <!-- Hero Section -->
   <div class="relative overflow-hidden bg-gradient-to-r from-lapit-darkblue via-blue-600 to-lapit-lightblue">
     <div class="absolute inset-0 bg-black opacity-10"></div>
@@ -10,59 +37,52 @@
       <div class="absolute -bottom-16 right-1/4 w-80 h-80 bg-white/8 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-      <div class="text-center max-w-4xl mx-auto">
-        <!-- Icon container -->
-        <div class="inline-flex items-center justify-center p-4 bg-white/20 backdrop-blur-sm rounded-2xl mb-8 group">
-          <svg class="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-          </svg>
+    <header class="relative overflow-hidden py-24 sm:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+                 class="w-full h-full object-cover brightness-[0.3]" alt="Background LaPIT">
+            <div class="absolute inset-0 bg-blue-900/20 backdrop-blur-[1px]"></div>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Équipe
-          <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent block sm:inline">
-            LaPIT
-          </span>
-        </h1>
-        
-        <p class="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
-          Découvrez nos enseignants-chercheurs passionnés qui façonnent l'avenir de la recherche
-        </p>
+        <div class="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+            <div class="inline-flex items-center justify-center p-4 bg-white/10 backdrop-blur-md rounded-2xl mb-8 border border-white/20 group">
+                <svg class="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                </svg>
+            </div>
 
-        <!-- Stats section -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto">
-          <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6">
-            <div class="text-2xl sm:text-3xl font-bold text-white mb-1">
-              <?= count($researchers) ?>
+            <h1 class="text-5xl sm:text-7xl font-black text-white mb-6 leading-tight">
+                Équipe 
+                <span class="bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-200 bg-clip-text text-transparent">
+                    LaPIT
+                </span>
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-12">
+                Découvrez nos chercheurs passionnés qui façonnent l'avenir de la technologie.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div class="text-3xl font-bold text-white mb-1">12</div>
+                    <div class="text-sm text-blue-200 uppercase tracking-widest">Chercheurs</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div class="text-white flex justify-center mb-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div class="text-sm text-blue-200 uppercase tracking-widest">Excellence</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                    <div class="text-white flex justify-center mb-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div class="text-sm text-blue-200 uppercase tracking-widest">Innovation</div>
+                </div>
             </div>
-            <div class="text-sm sm:text-base text-blue-100">
-              Chercheur<?= count($researchers) > 1 ? 's' : '' ?>
-            </div>
-          </div>
-          <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6">
-            <div class="text-2xl sm:text-3xl font-bold text-white mb-1">
-              <svg class="w-6 h-6 sm:w-8 sm:h-8 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <div class="text-sm sm:text-base text-blue-100">
-              Excellence
-            </div>
-          </div>
-          <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6">
-            <div class="text-2xl sm:text-3xl font-bold text-white mb-1">
-              <svg class="w-6 h-6 sm:w-8 sm:h-8 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <div class="text-sm sm:text-base text-blue-100">
-              Innovation
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </header>
+
   </div>
 
   <!-- Team Section -->
@@ -92,10 +112,18 @@
             
             <!-- Image container with overlay -->
             <div class="relative overflow-hidden">
-              <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($r['photo_path'], ENT_QUOTES) ?>" 
-                   alt="<?= htmlspecialchars($r['first_name'].' '.$r['last_name'], ENT_QUOTES) ?>" 
-                   class="w-full h-64 sm:h-72 object-cover transition-transform duration-700 group-hover:scale-110">
-              
+            <?php 
+              // Définition de l'image par défaut
+              $default_photo = config('base_url') . '/images/inconnu.png';
+              $photo = config('base_url') . '/images/'.$r['photo_path'];
+              // Vérification : si le chemin est vide ou n'existe pas, on utilise la photo par défaut
+              $photo_src = (!empty($r['photo_path'])) ? $photo  : $default_photo;
+            ?>
+
+            <img src="<?= htmlspecialchars($photo_src, ENT_QUOTES) ?>" 
+                alt="<?= htmlspecialchars($r['first_name'].' '.$r['last_name'], ENT_QUOTES) ?>" 
+                class="w-full h-64 sm:h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                onerror="this.src='<?= $default_photo ?>';">
               <!-- Gradient overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               

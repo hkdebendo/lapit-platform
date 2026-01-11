@@ -1,10 +1,15 @@
+<style>
+  .cubic-bezier {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>
 <!--slider -->
 <div 
   x-data="slider()" 
   x-init="init()" 
   @mouseover="pause()" 
   @mouseleave="play()" 
-  class="relative w-full overflow-hidden h-96 md:h-[500px] lg:h-[600px] rounded-xl shadow-2xl group"
+  class="relative w-full overflow-hidden h-96 md:h-[500px] lg:mt-[9.5%] mt-[20%] lg:h-[600px]  shadow-2xl group"
 >
   <template x-for="(slide, i) in slides" :key="i">
     <div
@@ -33,11 +38,8 @@
              x-transition:enter-start="opacity-0 translate-y-10"
              x-transition:enter-end="opacity-100 translate-y-0">
           
-          <!-- Badge -->
-          <div class="inline-flex items-center px-4 py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-200 text-sm font-medium mb-4">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-            <span x-text="'Slide ' + (i + 1) + ' / ' + slides.length"></span>
-          </div>
+          
+             
           
           <!-- Titre principal -->
           <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight" x-text="slide.title">
@@ -201,7 +203,7 @@
 <br>
 
   <!-- Les dernières nouvelles -->
-<section class="mb-16 relative">
+<section class="mb-16 relative ">
   <!-- Header de section avec animation -->
   <div class="text-center mb-12">
     <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4 shadow-lg">
@@ -214,17 +216,17 @@
     <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Découvrez les dernières actualités, innovations et réalisations de notre laboratoire</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
     <?php foreach($latestNews as $index => $news): ?>
       <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 hover:scale-105 border border-gray-100">
         <!-- Image avec overlay et badge -->
         <div class="relative h-56 overflow-hidden">
           <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($news['photo_path']) ?>"
                alt="<?= htmlspecialchars($news['title']) ?>" 
-               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+               class="w-full h-full  transition-transform duration-700 group-hover:scale-110">
           
           <!-- Gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute  inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           
           <!-- Badge "Nouveau" -->
           <div class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg animate-pulse">
@@ -251,7 +253,7 @@
         </div>
         
         <!-- Contenu -->
-        <div class="p-6 relative">
+        <div class="p-6 relative h-[57%]">
           <!-- Catégorie -->
           <div class="flex items-center mb-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 border border-blue-200">
@@ -303,87 +305,69 @@
   </div>
 </section>
 
-<!-- Unités de recherche -->
-<section class="mb-16 relative bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 rounded-3xl">
-  <!-- Background decoration -->
-  <div class="absolute inset-0 overflow-hidden rounded-3xl">
-    <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
-  </div>
+<section class="mb-16 relative py-24 overflow-hidden bg-[#0a192f] 
+                [clip-path:polygon(0_1%,100%_0,100%_99%,0_100%)] 
+                md:[clip-path:polygon(0_5%,100%_0,100%_95%,0_100%)]">
   
-  <div class="relative px-8">
-    <!-- Header de section -->
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4 shadow-lg">
+  <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(#1e3a8a 1px, transparent 1px), linear-gradient(90deg, #1e3a8a 1px, transparent 1px); background-size: 50px 50px;"></div>
+  
+  <div class="absolute -top-24 -right-24 w-full h-64 bg-blue-600/20 blur-[120px] rounded-full"></div>
+
+  <div class="relative px-8 z-10">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-[#1e3a8a] rounded-2xl mb-4 shadow-xl border border-blue-400/30 transform -rotate-3 hover:rotate-0 transition-transform">
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
         </svg>
       </div>
-      <h3 class="text-4xl font-bold text-gray-800 mb-3">Unités de Recherche</h3>
-      <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-      <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Explorez nos domaines d'expertise et nos équipes de recherche de pointe</p>
+      <h3 class="text-4xl md:text-5xl font-black text-white mb-3">Unités de Recherche</h3>
+      <div class="w-24 h-1.5 bg-blue-500 mx-auto rounded-full"></div>
+      <p class="text-blue-100/70 mt-6 max-w-2xl mx-auto italic text-lg">L'expertise scientifique au cœur de l'innovation industrielle</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <?php foreach($units as $index => $unit): ?>
-        <div class="group bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-3 border border-white/50 hover:border-purple-200">
-          <!-- Image avec overlay -->
-          <div class="relative h-40 overflow-hidden">
+        <div class="group flex flex-col h-full bg-[#112240]/80 backdrop-blur-md rounded-3xl shadow-2xl transition-all duration-500 overflow-hidden border border-blue-900/50 hover:border-blue-400 hover:shadow-blue-500/20 transform hover:-translate-y-4">
+          
+          <div class="relative h-48 flex-shrink-0 overflow-hidden">
             <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($unit['photo_path']) ?>"
                  alt="<?= htmlspecialchars($unit['title']) ?>" 
-                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
             
-            <!-- Numéro de l'unité -->
-            <div class="absolute top-3 left-3 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
-              <?= sprintf('%02d', $index + 1) ?>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white font-bold text-xs uppercase tracking-tighter">
+              LAB-<?= sprintf('%02d', $index + 1) ?>
             </div>
-            
-            <!-- Overlay avec icône -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div class="bg-white/20 backdrop-blur-sm rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-            </div>
+
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           
-          <!-- Contenu -->
-          <div class="p-5 relative">
-            <!-- Indicateur de statut -->
-            <div class="flex items-center justify-between mb-3">
-              <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                Actif
-              </span>
-              <div class="flex items-center text-xs text-gray-500">
-                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-                </svg>
-                Équipe
-              </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse shadow-[0_0_8px_#60a5fa]"></span>
+              <span class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Unité de pointe</span>
             </div>
             
-            <h4 class="font-bold text-lg text-gray-800 mb-2 line-clamp-2 group-hover:text-purple-600 transition-colors duration-300">
+            <h4 class="font-bold text-xl text-white mb-3 line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight">
               <?= htmlspecialchars($unit['title']) ?>
             </h4>
             
-            <p class="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+            <p class="text-sm text-blue-100/60 mb-auto line-clamp-3 leading-relaxed font-light">
               <?= htmlspecialchars($unit['description_short']) ?>
             </p>
             
-            <!-- CTA -->
-            <a href="<?= config('base_url') ?>/unit/show/<?= $unit['id'] ?>"
-               class="group/btn inline-flex items-center justify-center w-full px-4 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105">
-              <span>En savoir plus</span>
-              <svg class="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
+            <div class="mt-8">
+                <a href="<?= config('base_url') ?>/unit/show/<?= $unit['id'] ?>"
+                   class="relative overflow-hidden group/btn inline-flex items-center justify-between w-full px-6 py-4 bg-transparent border border-blue-500/50 hover:border-blue-400 text-white rounded-2xl font-bold text-sm transition-all duration-300">
+                  <span class="relative z-10">Consulter l'unité</span>
+                  <svg class="w-5 h-5 relative z-10 transform transition-transform duration-300 group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                  <div class="absolute inset-0 bg-blue-600 transform translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
+                </a>
+            </div>
           </div>
-          
-          <!-- Barre de progression en bas -->
-          <div class="h-1 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+          <div class="h-1 w-full bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
       <?php endforeach; ?>
     </div>
@@ -391,55 +375,57 @@
 </section>
 
 <!-- Vidéo statique -->
-<section class="mb-16">
-  <div class="text-center mb-12">
-    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-4 shadow-lg">
-      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.5a2.5 2.5 0 000-5H9m3 0H9m3 0h1.5a2.5 2.5 0 010 5M9 10v6m3-6v6"/>
-      </svg>
+<section class="mb-24 relative py-16 bg-white">
+  
+  <div class="relative z-10 px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-slate-50 rounded-2xl mb-6 border border-slate-100 shadow-sm group hover:border-blue-500 transition-colors duration-500">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.5a2.5 2.5 0 000-5H9m3 0H9m3 0h1.5a2.5 2.5 0 010 5M9 10v6m3-6v6"/>
+        </svg>
+      </div>
+      <h3 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">
+        PRÉSENTATION <span class="text-blue-600 italic">VIDÉO</span>
+      </h3>
+      <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
+      <p class="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
+        Découvrez <span class="text-slate-900 font-bold">LaPIT</span> en images. Explorez nos infrastructures et notre vision de l'innovation.
+      </p>
     </div>
-    <h3 class="text-4xl font-bold text-gray-800 mb-3">Présentation vidéo</h3>
-    <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto rounded-full"></div>
-    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Découvrez LaPIT en images et plongez dans notre univers de recherche et d'innovation</p>
-  </div>
 
-  <div class="relative max-w-5xl mx-auto">
-    <!-- Container avec effet glassmorphism -->
-    <div class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
-      <!-- Decoration circles -->
-      <div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-r from-red-400/20 to-orange-400/20 rounded-full blur-xl"></div>
-      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-xl"></div>
-      
-      <div class="relative aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl group">
-        <!-- Play button overlay -->
-        <div class="absolute inset-0 bg-black/20 flex items-center justify-center z-10 group-hover:bg-black/10 transition-all duration-300">
-          <div class="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300 cursor-pointer">
-            <svg class="w-8 h-8 text-red-500 ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
+    <div class="relative max-w-5xl mx-auto">
+      <div class="relative bg-white rounded-[2.5rem] p-3 shadow-[0_30px_100px_-20px_rgba(0,0,0,0.15)] border border-slate-100">
         
-        <iframe src="https://www.youtube.com/embed/ID_VIDEO"
-                frameborder="0" 
-                class="w-full h-full rounded-2xl" 
-                allowfullscreen>
-        </iframe>
+        <div class="relative aspect-video rounded-[1.8rem] overflow-hidden group">
+          <div class="absolute inset-0 bg-slate-900/10 flex items-center justify-center z-10 group-hover:bg-slate-900/5 transition-all duration-500">
+            <div class="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-500 cursor-pointer">
+                <div class="absolute inset-0 rounded-full border-2 border-blue-500 animate-ping opacity-20"></div>
+                <svg class="w-8 h-8 text-blue-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+          </div>
+          
+          <iframe src="https://www.youtube.com/embed/ID_VIDEO"
+                  frameborder="0" 
+                  class="w-full h-full rounded-[1.8rem]" 
+                  allowfullscreen>
+          </iframe>
+        </div>
       </div>
       
-      <!-- Stats sous la vidéo -->
-      <div class="grid grid-cols-3 gap-6 mt-8">
-        <div class="text-center">
-          <div class="text-2xl font-bold text-gray-800">2.5M+</div>
-          <div class="text-sm text-gray-600">Vues</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 text-center hover:bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+          <div class="text-3xl font-black text-slate-900 mb-1">2.5M+</div>
+          <div class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Vues</div>
         </div>
-        <div class="text-center">
-          <div class="text-2xl font-bold text-gray-800">15K+</div>
-          <div class="text-sm text-gray-600">Partages</div>
+        <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 text-center hover:bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+          <div class="text-3xl font-black text-slate-900 mb-1">15K+</div>
+          <div class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Partages</div>
         </div>
-        <div class="text-center">
-          <div class="text-2xl font-bold text-gray-800">98%</div>
-          <div class="text-sm text-gray-600">Satisfaction</div>
+        <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 text-center hover:bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+          <div class="text-3xl font-black text-slate-900 mb-1">98%</div>
+          <div class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Satisfaction</div>
         </div>
       </div>
     </div>
@@ -543,11 +529,10 @@
 
 
 <!-- Laboratoires partenaires -->
-<section class="mb-16">
-  <!-- Titre et intro -->
-  <div class="text-center mb-12">
-    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mb-4 shadow-lg">
-      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<section class="mb-24 relative py-12">
+  <div class="text-center mb-16">
+    <div class="inline-flex items-center justify-center w-16 h-16 bg-[#0a192f] rounded-2xl mb-6 shadow-xl border border-blue-500/20 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+      <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2
                  c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0
@@ -557,43 +542,54 @@
                  11-4 0 2 2 0 014 0z"/>
       </svg>
     </div>
-    <h3 class="text-4xl font-bold text-gray-800 mb-3">Laboratoires partenaires</h3>
-    <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto rounded-full mb-4"></div>
-    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-      Un réseau de collaborations stratégiques avec les institutions les plus prestigieuses
-    </p>
-  </div>
+    <div class="text-center px-4"> 
+      <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-3 tracking-tight uppercase leading-tight">
+        Laboratoires <span class="text-blue-600">Partenaires</span>
+      </h3>
+  
+      <div class="w-16 md:w-20 h-1.5 bg-blue-600  mx-auto rounded-full"></div>
+        
+        <p class="text-slate-600 mt-4 md:mt-6 pb-10 max-w-2xl mx-auto font-medium text-base md:text-lg leading-relaxed px-2">
+          Un réseau de collaborations stratégiques avec les institutions les plus prestigieuses
+        </p>
 
-  <!-- Carousel logos -->
-  <div class="relative bg-white rounded-2xl shadow-lg border border-gray-100 p-8 overflow-hidden">
-    <!-- Masques de dégradé -->
-    <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent"></div>
-    <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent"></div>
+      </div>
 
-    <!-- Bande défilante -->
-    <div class="flex space-x-8 animate-[scroll_20s_linear_infinite]">
-      <?php foreach($partners as $p): ?>
-        <div class="flex-shrink-0">
-          <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path']) ?>"
-               alt="<?= htmlspecialchars($p['name']) ?>"
-               class="max-w-[100px] h-auto grayscale hover:grayscale-0 transition">
-        </div>
-      <?php endforeach; ?>
-      <!-- Dupliquez les logos pour le scroll infini -->
-      <?php foreach($partners as $p): ?>
-        <div class="flex-shrink-0">
-          <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path']) ?>"
-               alt="<?= htmlspecialchars($p['name']) ?>"
-               class="max-w-[100px] h-auto grayscale hover:grayscale-0 transition">
-        </div>
-      <?php endforeach; ?>
+  <div class="relative max-w-7xl mx-auto px-4">
+    <div class="relative bg-white rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] border border-slate-100 p-10 overflow-hidden">
+      
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white via-white/40 to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white via-white/40 to-transparent z-10"></div>
+
+      <div class="flex items-center space-x-20 animate-scroll">
+        <?php foreach($partners as $p): ?>
+          <div class="flex-shrink-0 w-44 h-20 flex items-center justify-center group relative">
+            <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path']) ?>"
+                 alt="<?= htmlspecialchars($p['name']) ?>"
+                 class="max-w-full max-h-full object-contain transition-all duration-500 opacity-100  group-hover:opacity-100 group-hover:scale-110 filter drop-shadow-sm">
+            <div class="absolute inset-0 bg-blue-50/0 group-hover:bg-blue-50/50 rounded-xl transition-colors -z-10 blur-xl"></div>
+          </div>
+        <?php endforeach; ?>
+        
+        <?php foreach($partners as $p): ?>
+          <div class="flex-shrink-0 w-44 h-20 flex items-center justify-center group relative">
+            <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($p['logo_path']) ?>"
+                 alt="<?= htmlspecialchars($p['name']) ?>"
+                 class="max-w-full max-h-full object-contain transition-all duration-500 opacity-100  group-hover:opacity-100 group-hover:scale-110 filter drop-shadow-sm">
+            <div class="absolute inset-0 bg-blue-50/0 group-hover:bg-blue-50/50 rounded-xl transition-colors -z-10 blur-xl"></div>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
 
-  <div class="text-center mt-6">
+  <div class="text-center mt-12">
     <a href="<?= config('base_url') ?>/partner"
-       class="inline-block px-6 py-3 bg-lapit-lightblue text-white rounded-full font-medium hover:bg-lapit-darkblue transition">
-      En savoir plus
+       class="group inline-flex items-center gap-3 px-10 py-4 bg-[#0a192f] text-white rounded-2xl font-bold text-sm shadow-xl shadow-blue-900/10 hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1">
+      <span>Consulter l'annuaire complet</span>
+      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
     </a>
   </div>
 </section>
@@ -603,7 +599,13 @@
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-  .animate-\[scroll_20s_linear_infinite\] {
-    animation: scroll 20s linear infinite;
+  .animate-scroll {
+    animation: scroll 40s linear infinite; /* Ralenti pour un aspect plus luxueux */
+    width: max-content;
+    display: flex;
+    will-change: transform;
+  }
+  .animate-scroll:hover {
+    animation-play-state: paused;
   }
 </style>

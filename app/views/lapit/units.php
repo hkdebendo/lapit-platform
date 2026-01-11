@@ -62,96 +62,103 @@
 </head>
 <body class="gradient-bg min-h-screen">
 
-<section class="container mx-auto px-4 py-12 fade-in">
-    <!-- En-tête -->
-    <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue rounded-2xl mb-4 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-        </div>
-        <h2 class="text-4xl font-bold title-gradient mb-4">Unités de Recherche</h2>
-        <div class="w-32 h-1 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue mx-auto rounded-full mb-4"></div>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Découvrez nos unités de recherche de pointe qui façonnent l'avenir de la science et de la technologie
-        </p>
-    </div>
+   
+<section class=" bg-white relative lg:mt-[12%] mt-[26%] overflow-hidden">
+     <!-- En-tête -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" 
+            style="background-image: radial-gradient(#0a192f 1px, transparent 1px); background-size: 20px 20px;"></div>
 
-    <!-- Grille des unités avec animations décalées -->
-    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <?php foreach($units as $index => $u): ?>
-            <div class="bg-white shadow-xl rounded-2xl overflow-hidden card-hover fade-in stagger-animation" 
-                 style="--delay: <?= $index ?>">
-                
-                <!-- Image avec overlay et badge -->
-                <div class="relative group">
-                    <img 
-                        src="<?= config('base_url') ?>/images/<?= htmlspecialchars($u['photo_path'], ENT_QUOTES) ?>" 
-                        alt="<?= htmlspecialchars($u['title'], ENT_QUOTES) ?>" 
-                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                    >
-                    <div class="absolute inset-0 image-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
-                    <!-- Badge de recherche -->
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-white/90 backdrop-blur-sm text-lapit-darkblue px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                            Unité de Recherche
-                        </span>
-                    </div>
-                    
-                    <!-- Icône overlay au hover -->
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contenu de la carte -->
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-3">
-                        <h3 class="text-xl font-bold text-gray-800 leading-tight flex-1">
-                            <?= htmlspecialchars($u['title'], ENT_QUOTES) ?>
-                        </h3>
-                        <div class="ml-2 flex-shrink-0">
-                            <div class="w-3 h-3 bg-green-400 rounded-full shadow-lg animate-pulse"></div>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 mb-6 leading-relaxed text-sm">
-                        <?= htmlspecialchars($u['description_short'], ENT_QUOTES) ?>
-                    </p>
-                    
-                    <!-- Bouton avec design moderne -->
-                    <div class="flex items-center justify-between">
-                        <a 
-                            href="<?= config('base_url') ?>/unit/show/<?= $u['id'] ?>" 
-                            class="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue text-white rounded-xl font-semibold text-sm btn-glow hover:from-lapit-darkblue hover:to-lapit-lightblue transition-all duration-300"
-                        >
-                            En savoir plus
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
-                        
-                        <!-- Indicateur de statut -->
-                        <div class="flex items-center text-xs text-gray-500">
-                            <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            Active
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Barre de progression décorative -->
-                <div class="h-1 bg-gradient-to-r from-lapit-lightblue via-lapit-darkblue to-lapit-lightblue"></div>
+        <div class="text-center mb-12 md:mb-20 relative z-10 px-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#0a192f] rounded-[1.2rem] md:rounded-[1.5rem] mb-6 md:mb-8 shadow-[0_20px_40px_-10px_rgba(10,25,47,0.3)] border border-blue-500/20 transform hover:rotate-6 transition-transform duration-500 group">
+                <svg class="w-8 h-8 md:w-10 md:h-10 text-blue-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
             </div>
-        <?php endforeach; ?>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#0f1a3c] mb-4 md:mb-6 tracking-tighter uppercase leading-[1.1] md:leading-none">
+                Unités de <span class="text-blue-600 italic">Recherche</span>
+            </h2>
+
+            <div class="flex items-center justify-center gap-2 mb-6 md:mb-8">
+                <div class="w-12 md:w-16 h-1 bg-blue-600 rounded-full"></div>
+                <div class="w-3 md:w-4 h-1 bg-blue-300 rounded-full"></div>
+            </div>
+
+            <p class="text-slate-500 text-base md:text-xl max-w-3xl mx-auto font-medium leading-relaxed italic px-2">
+                Découvrez nos unités de recherche de pointe qui façonnent l'avenir de la science et de la technologie
+            </p>
     </div>
+    
+    <!-- Grille des unités avec animations décalées -->
+<section class="relative py-24 bg-[#020617] overflow-hidden">
+    
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none" 
+         style="background-image: linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none">
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-12 md:px-24 relative z-10">
+        
+            <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+            <?php foreach($units as $index => $u): ?>
+                <div class="relative group flex flex-col h-full fade-in" 
+                     style="animation: slideUp 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards; --delay: <?= $index ?>">
+                    
+                    <div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl border-x border-t border-white/10">
+                        <img 
+                            src="<?= config('base_url') ?>/images/<?= htmlspecialchars($u['photo_path'], ENT_QUOTES) ?>" 
+                            alt="<?= htmlspecialchars($u['title'], ENT_QUOTES) ?>" 
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1229] via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="pt-6 px-6 pb-8 flex flex-col flex-grow bg-[#0a1229]/60 backdrop-blur-sm border-x border-b border-white/10 rounded-b-2xl shadow-2xl">
+                        
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="text-[10px] font-mono font-bold text-blue-400 mt-1">0<?= $index + 1 ?></span>
+                            <h3 class="text-lg font-bold text-white leading-tight tracking-tight uppercase group-hover:text-blue-400 transition-colors">
+                                <?= htmlspecialchars($u['title'], ENT_QUOTES) ?>
+                            </h3>
+                        </div>
+                        
+                        <p class="text-slate-400 leading-relaxed text-sm font-medium mb-8 line-clamp-3 pl-4 border-l border-blue-500/30">
+                            <?= htmlspecialchars($u['description_short'], ENT_QUOTES) ?>
+                        </p>
+                        
+                        <div class="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                            <a href="<?= config('base_url') ?>/unit/show/<?= $u['id'] ?>" 
+                               class="inline-flex items-center px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-[10px] uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                                Explorer
+                            </a>
+                            
+                            <div class="text-right">
+                                <p class="text-[8px] font-bold text-blue-400/50 uppercase tracking-widest mb-0.5">Réf_Id</p>
+                                <p class="text-[10px] font-mono font-bold text-slate-300">LPT-<?= str_pad($u['id'], 3, '0', STR_PAD_LEFT) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+<style>
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 
     <!-- Section statistiques optionnelle -->
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">

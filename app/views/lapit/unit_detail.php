@@ -64,61 +64,27 @@
 </head>
 <body class="gradient-bg min-h-screen">
 
-<section class="container mx-auto px-4 py-8 lg:py-12">
+<section class="container mx-auto px-4 py-8 mt-[20%] lg:mt-[10%]">
     <!-- En-tête avec breadcrumb et titre -->
-    <div class="fade-in mb-8">
-        <!-- Breadcrumb -->
-        <nav class="flex items-center space-x-2 text-sm text-gray-600 mb-4">
-            <a href="<?= config('base_url') ?>" class="hover:text-lapit-lightblue transition-colors">Accueil</a>
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
-            <a href="<?= config('base_url') ?>/unit" class="hover:text-lapit-lightblue transition-colors">Unités de Recherche</a>
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
-            <span class="text-lapit-darkblue font-medium">Détails</span>
-        </nav>
-
-        <!-- Titre principal  -->
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <div class="flex-1">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold title-gradient mb-4 leading-tight">
-                    <?= htmlspecialchars($unit['title'], ENT_QUOTES) ?>
-                </h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-lapit-lightblue to-lapit-darkblue rounded-full"></div>
-            </div>
+     <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+        <div class="lg:w-3/5 space-y-4">
             
-            <!-- Badge statut -->
-            <div class="mt-4 sm:mt-0 sm:ml-6">
-                <span class="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
-                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                    Unité Active
-                </span>
+            <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-none uppercase tracking-tighter">
+                <?= htmlspecialchars($unit['title'], ENT_QUOTES) ?>
+            </h1>
+            
+        </div>
+        <div class="lg:w-2/5 w-full">
+            <div class="relative rounded-[2rem] overflow-hidden border-[6px] border-slate-50 shadow-xl">
+                <img src="<?= config('base_url') ?>/images/<?= htmlspecialchars($unit['photo_path'], ENT_QUOTES) ?>" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
             </div>
         </div>
     </div>
 
     <!-- Section principale avec image et description -->
     <div class="bg-white shadow-xl rounded-2xl overflow-hidden mb-12 fade-in card-hover">
-        <div class="relative">
-            <img 
-                src="<?= config('base_url') ?>/images/<?= htmlspecialchars($unit['photo_path'], ENT_QUOTES) ?>" 
-                alt="<?= htmlspecialchars($unit['title'], ENT_QUOTES) ?>" 
-                class="w-full h-48 sm:h-60 lg:h-80 object-cover"
-            >
-            <div class="absolute inset-0 image-overlay"></div>
-            
-            <!-- Badge sur l'image -->
-            <div class="absolute top-4 left-4">
-                <span class="bg-white/90 backdrop-blur-sm text-lapit-darkblue px-3 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
-                    Unité de Recherche
-                </span>
-            </div>
-        </div>
+        
         
         <div class="p-6 sm:p-8 lg:p-10">
             <div class="flex items-center mb-6">
